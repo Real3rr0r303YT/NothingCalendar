@@ -76,7 +76,7 @@ import java.time.temporal.TemporalAdjusters
 
 private const val MONTH_PAGES = 2401 // ±100 years
 private const val MONTH_CENTER = MONTH_PAGES / 2
-private val GridHeight = 6 * 56.dp
+private val GridHeight = (6 * 56).dp // 6 weeks × 56dp per row
 
 @Composable
 fun MonthScreen(vm: CalendarViewModel) {
