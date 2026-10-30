@@ -35,7 +35,7 @@ import com.real3rr0r303yt.nothingcalendar.util.currentLocale
 import java.time.DayOfWeek
 import java.time.format.TextStyle
 
-private const val DONATION_URL = "https://www.buymeacoffee.com/3rr0r303yt"
+private const val DONATION_URL = "https://buymeacoffee.com/3rr0r303YT"
 
 @Composable
 fun SettingsSheet(
