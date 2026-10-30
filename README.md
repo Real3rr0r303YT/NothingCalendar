@@ -14,9 +14,9 @@ Dot-matrix type · Deep black · Pure white · One red accent · Haptics everywh
 
 ### ☕ Like the app? Support development!
 
-[![Buy Me A Coffee](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-Support%20NothingCalendar-FFDD00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black)](https://www.buymeacoffee.com/3rr0r303yt)
+[![Buy Me A Coffee](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-Support%20NothingCalendar-FFDD00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black)](https://buymeacoffee.com/3rr0r303YT)
 
-**[buymeacoffee.com/3rr0r303yt](https://www.buymeacoffee.com/3rr0r303yt)**
+**[buymeacoffee.com/3rr0r303YT](https://buymeacoffee.com/3rr0r303YT)**
 
 </div>
 
@@ -141,7 +141,7 @@ Issues and pull requests are welcome! Please keep the design minimal – black, 
 
 If NothingCalendar is useful to you, consider buying me a coffee – it keeps the project going. ❤️
 
-<a href="https://www.buymeacoffee.com/3rr0r303yt"><img src="https://img.shields.io/badge/Buy%20Me%20a%20Coffee-☕-FFDD00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black" alt="Buy Me A Coffee"></a>
+<a href="https://buymeacoffee.com/3rr0r303YT"><img src="https://img.shields.io/badge/Buy%20Me%20a%20Coffee-☕-FFDD00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black" alt="Buy Me A Coffee"></a>
 
 ## License
 
@@ -149,3 +149,5 @@ If NothingCalendar is useful to you, consider buying me a coffee – it keeps th
 
 > NothingCalendar is an independent community project and is not affiliated with,
 > endorsed by, or sponsored by Nothing Technology Limited. "Nothing" is a trademark of its owner.
+
+<p align="center"><b>Made by <a href="https://github.com/Real3rr0r303YT">Real3rr0r303YT</a></b></p>
