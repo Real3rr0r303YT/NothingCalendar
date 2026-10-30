@@ -7,11 +7,12 @@ pluginManagement {
 }
 
 dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
         google()
         mavenCentral()
     }
 }
 
-rootProject.name = "core-breach"
-include("core", "android", "desktop")
+rootProject.name = "NothingCalendar"
+include(":app")

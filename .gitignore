@@ -1,17 +1,24 @@
-# Gradle / Build
+# Gradle
 .gradle/
 build/
-dist/
-android/libs/
-local.properties
+!gradle/wrapper/gradle-wrapper.jar
 
-# IDE
+# Android Studio / IntelliJ
 .idea/
 *.iml
-.vscode/
-.DS_Store
+.navigation/
+captures/
+.externalNativeBuild/
+.cxx/
 
-# Signing - NIEMALS committen
+# Local config
+local.properties
+
+# Signing
 *.jks
 *.keystore
-*.jks.b64
+keystore.properties
+
+# OS
+.DS_Store
+Thumbs.db

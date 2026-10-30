@@ -1,181 +1,151 @@
-# CORE//BREACH
+<div align="center">
 
-```
- ___ ___  ___ ___   //  ___ ___ ___   _   ___ _  _
-/ __/ _ \| _ \ __| //  | _ ) _ \ __| /_\ / __| || |
-| (_| (_) |   / _| //   | _ \   / _| / _ \ (__| __ |
-\___\___/|_|_\___|//    |___/_|_\___/_/ \_\___|_||_|
-```
+# ● NothingCalendar
 
-**Physik-Platformer für Android.** Du bist CORE-0, ein roter Energie-Core im kompromittierten Netz von OMNIGRID.
-Roll, spring, zerquetsch System-Daemons, knack Firewalls und flip die Gravitation, bis du am Kernel bist.
+**A minimalist calendar for Android in the Nothing OS design language.**
+Dot-matrix type · Deep black · Pure white · One red accent · Haptics everywhere.
 
-OLED-Schwarz `#000000` · Dot-Matrix-Weiß · Signal-Rot `#DA291C` · Glitch-Shader · Haptik · null Bitmaps.
+[![Build APK](https://github.com/Real3rr0r303YT/NothingCalendar/actions/workflows/build.yml/badge.svg)](https://github.com/Real3rr0r303YT/NothingCalendar/actions/workflows/build.yml)
+![Android 8.0+](https://img.shields.io/badge/Android-8.0%2B-000000?logo=android&logoColor=white)
+![Kotlin](https://img.shields.io/badge/Kotlin-Jetpack%20Compose-D71921?logo=kotlin&logoColor=white)
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-FFFFFF)](LICENSE)
 
-> Inspiriert von klassischen Rolling-Ball-Platformern. Eigenständiges Projekt, keine Assets oder Namen Dritter.
+<br>
 
----
+### ☕ Like the app? Support development!
 
-## APK bauen
+[![Buy Me A Coffee](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-Support%20NothingCalendar-FFDD00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black)](https://www.buymeacoffee.com/3rr0r303yt)
 
-### Variante A: GitHub Actions (kein PC-Setup nötig)
+**[buymeacoffee.com/3rr0r303yt](https://www.buymeacoffee.com/3rr0r303yt)**
 
-```bash
-git init
-git add .
-git commit -m "init: CORE//BREACH"
-git branch -M main
-git remote add origin https://github.com/<DEIN-USER>/core-breach.git
-git push -u origin main
-```
-
-Der Build startet automatisch. Tab **Actions** → letzter Run `CORE//BREACH APK Builder` (~4 min) → unten bei **Artifacts** → `CORE-BREACH-apk` laden → ZIP entpacken → APK installieren.
-
-Release mit Download-Link für alle:
-
-```bash
-git tag v0.1.0
-git push origin v0.1.0
-```
-
-→ APK hängt unter **Releases** als `CORE-BREACH-v0.1.0.apk`.
-
-> Upload über die GitHub-Weboberfläche geht auch, aber dann den Ordner `.github` unbedingt mit hochladen (versteckter Ordner!).
-
-### Variante B: Lokal mit Docker
-
-```bash
-./build.sh            # baut im Container, APK landet in dist/CORE-BREACH.apk
-./build.sh install    # per adb aufs Handy
-```
-
-### Variante C: Lokal mit Android SDK
-
-```bash
-export ANDROID_HOME=$HOME/Android/Sdk
-./build.sh native
-```
-
-### Am PC testen
-
-```bash
-./build.sh desktop    # A/D oder Pfeile = rollen, Space/W = springen, Esc = zurück
-```
+</div>
 
 ---
 
-## Eigener Signier-Key (empfohlen für Releases)
+## Why?
 
-Ohne Key signiert der Workflow mit einem Debug-Key. Funktioniert, aber jedes Update erfordert Neuinstallation.
+Nothing Phones ship without a calendar app of their own. NothingCalendar fills that gap
+with an app that looks and feels like it belongs on Nothing OS: monochrome, dotted,
+calm, and tactile.
 
-```bash
-keytool -genkeypair -v -keystore release.jks -alias corebreach \
-  -keyalg RSA -keysize 4096 -validity 10000
-base64 -w0 release.jks > release.jks.b64
-```
+## Features
 
-Repo → **Settings → Secrets and variables → Actions** → vier Secrets anlegen:
+- **Month view** – 6-week grid with dot indicators for events, swipe left/right to change months
+- **Dot-matrix headers** – month name and day number rendered on a custom 5×7 LED-style matrix
+- **Day view** – 24-hour timeline with a live red "now" line; overlapping events are laid out side by side
+- **Agenda** – the selected day's events right below the month grid
+- **Create & edit events** – title, date, start/end time or all-day, notes
+  - Long-press a day (month view) or tap an hour (day view) to create an event there
+  - Two-tap delete to prevent accidents
+- **Haptic feedback** – distinct patterns for ticks (swiping), taps, long-presses, errors and saves;
+  rich composed vibration on devices that support haptic primitives (e.g. Nothing Phone's X-axis motor).
+  Can be turned off in settings.
+- **Nothing OS look** – `#000000` black, `#FFFFFF` white, `#D71921` red accent, monospace labels, dot grid background
+- **Settings** – toggle haptics, choose Monday or Sunday as first day of the week
+- **Localized** – English and German, honours the system 12/24-hour setting
+- **Private** – events are stored only on your device, no account, no internet permission
 
-| Secret | Wert |
-|---|---|
-| `KEYSTORE_B64` | Inhalt von `release.jks.b64` |
-| `KEYSTORE_PASS` | Keystore-Passwort |
-| `KEY_ALIAS` | `corebreach` |
-| `KEY_PASS` | Key-Passwort |
+## Installation
 
-`release.jks` niemals committen (steht in `.gitignore`).
+### Option A – Download the APK
 
----
+1. Open the [**Actions**](https://github.com/Real3rr0r303YT/NothingCalendar/actions/workflows/build.yml) tab
+   (or the [**Releases**](https://github.com/Real3rr0r303YT/NothingCalendar/releases) page for tagged versions).
+2. Pick the latest successful run and download the `NothingCalendar-release` (or `-debug`) artifact.
+3. Unzip it, copy the `.apk` to your phone and open it.
+   You may need to allow *Install unknown apps* for your file manager or browser.
 
-## Steuerung
+### Option B – Build it yourself
 
-| Aktion | Touch | Tastatur |
-|---|---|---|
-| Rollen | Dot-Ringe unten links | `A` `D` / Pfeile |
-| Springen | rechte Bildschirmhälfte | `Space` `W` `↑` |
-| Kurzer Sprung | Finger früh loslassen | Taste früh loslassen |
-| Zurück / Pause | `‖` oben rechts / Back | `Esc` |
-
-## Spielelemente
-
-| | Element | Verhalten |
-|---|---|---|
-| ● | **CORE-0** | Rollt per Drehmoment, 3 Integrity-Punkte |
-| ■ | **Daemon** | Patrouilliert. Von der freien Seite treffen = Kill. Seitlich = Schaden |
-| ▲ | **Laser-Spikes** | Schaden + Respawn |
-| ◆ | **Data-Shard** | 3 pro Level, für 100 % |
-| ◎ | **Gravity-Switch** | Invertiert die Gravitation. Springen geht dann „nach unten“ |
-| ▣ | **Terminal** | Öffnet die nächste Firewall-Spalte rechts davon |
-| ‖ | **Firewall** | Rote Laserwand, blockiert bis zum Terminal-Hack |
-| ◇ | **Exit** | Level geschafft, nächstes wird freigeschaltet |
-
-Daemons an der Decke gibt es auch. Die erwischst du von unten.
-
----
-
-## Level bauen
-
-Level sind ASCII in [`core/src/main/kotlin/dev/corebreach/level/Levels.kt`](core/src/main/kotlin/dev/corebreach/level/Levels.kt).
-1 Zeichen = 1 Meter, oberste Zeile = Decke.
-
-```
-#  Block        P  Spawn (1x)      X  Exit
-D  Daemon       ^  Spikes          S  Shard (genau 3x)
-G  Gravity      T  Terminal        F  Firewall
-.  leer
-```
-
-Sprungphysik als Faustregel: **2 Blöcke hoch**, **bis 4 Blöcke weit**.
+Requirements: **JDK 17** and the **Android SDK** (Android Studio Ladybug or newer is easiest).
 
 ```bash
-./gradlew core:test    # Level-Validator: Spawn, 3 Shards, geschlossener Rand, Spikes befestigt, ...
+git clone https://github.com/Real3rr0r303YT/NothingCalendar.git
+cd NothingCalendar
+./gradlew assembleDebug
+# APK: app/build/outputs/apk/debug/app-debug.apk
+
+# Install directly on a connected phone (USB debugging enabled):
+./gradlew installDebug
 ```
 
-Der Validator läuft in CI vor jedem Build. Kaputtes Level = roter Build, keine APK.
+Or open the folder in Android Studio and press **Run ▶**.
 
----
+## Usage
 
-## Tech
+| Action | Where | Result |
+| --- | --- | --- |
+| Tap a day | Month | Select it and show its agenda |
+| Tap the selected day again | Month | Open the day view |
+| Long-press a day | Month | Create an event on that day |
+| Swipe left / right | Month / Day | Next / previous month or day |
+| Tap an empty hour | Day | Create an event at that hour |
+| Tap an event | Anywhere | Edit or delete it |
+| `TODAY` pill | Month / Day | Jump back to today |
 
-| Layer | Stack |
-|---|---|
-| Sprache | Kotlin 2.0 (JVM 17) |
-| Engine | libGDX 1.13 |
-| Physik | Box2D (fixed timestep 1/60 s) |
-| Rendering | 100 % `ShapeRenderer` + GLSL Post-FX (Glitch, Chromatic Aberration, Scanlines, Vignette) |
-| Font | Prozedurale 5×7 Dot-Matrix (`ui/DotFont.kt`) |
-| Audio | Prozedural generierte 8-bit SFX (`assets/sfx`) |
-| Build | Gradle 8.10 · AGP 8.7 · minSdk 26 · targetSdk 35 |
-| CI | GitHub Actions → APK-Artifact + Release |
+## Project structure
 
 ```
-core-breach/
-├── .github/workflows/build.yml   APK-Pipeline
-├── builder/Dockerfile            Android SDK im Container
-├── build.sh                      lokaler Builder
-├── assets/sfx/                   Sounds
-├── core/                         Spiellogik (plattformunabhängig)
-│   └── src/main/kotlin/dev/corebreach/
-│       ├── CoreBreachGame.kt     Einstieg
-│       ├── Services.kt           Sfx, Haptics, Save
-│       ├── level/                LevelData, Levels (ASCII)
-│       ├── world/                GameWorld (Box2D), WorldRenderer
-│       ├── screens/              Boot, Select, Play
-│       ├── fx/                   PostFx (Glitch-Shader)
-│       └── ui/                   Palette, DotFont, Controls
-├── android/                      Launcher, Manifest, Icon
-└── desktop/                      LWJGL3-Launcher zum Testen
+NothingCalendar/
+├── .github/workflows/build.yml      # CI: builds debug + release APKs, uploads artifacts
+├── app/
+│   ├── build.gradle.kts
+│   └── src/main/
+│       ├── AndroidManifest.xml
+│       ├── java/com/real3rr0r303yt/nothingcalendar/
+│       │   ├── MainActivity.kt
+│       │   ├── data/                 # CalendarEvent, EventRepository, SettingsRepository
+│       │   ├── ui/
+│       │   │   ├── CalendarViewModel.kt
+│       │   │   ├── NothingCalendarApp.kt
+│       │   │   ├── components/       # DotMatrixText, pills, FAB, dotted dividers
+│       │   │   ├── screens/          # Month, Day, event editor, settings
+│       │   │   └── theme/            # Nothing colours, typography, shapes
+│       │   └── util/                 # Haptics, formatting helpers
+│       └── res/                      # strings (en/de), adaptive dot-matrix icon
+├── build.gradle.kts
+├── settings.gradle.kts
+├── gradle.properties
+└── gradlew / gradlew.bat
 ```
+
+**Tech stack:** Kotlin · Jetpack Compose · Material 3 · `java.time` · minSdk 26 / targetSdk 35
+
+## Signed release builds (optional)
+
+The CI signs the release APK with the debug key unless you add these repository secrets
+(*Settings → Secrets and variables → Actions*):
+
+| Secret | Content |
+| --- | --- |
+| `SIGNING_KEYSTORE_BASE64` | your `.jks` file, base64-encoded (`base64 -w0 release.jks`) |
+| `SIGNING_STORE_PASSWORD` | keystore password |
+| `SIGNING_KEY_ALIAS` | key alias |
+| `SIGNING_KEY_PASSWORD` | key password |
+
+Push a tag like `v1.0.0` and the workflow also publishes a GitHub Release with the APK.
 
 ## Roadmap
 
-- [x] **M0** Pipeline: GitHub Actions, Docker-Builder, Signing
-- [x] **M1** Core-Physik: Rollen, Sprung, Coyote-Time, Daemons, Stomp
-- [x] **M2** Welt 1 BOOTLOADER: 5 Level, Gravity, Firewalls, Savegame
-- [ ] **M3** Juice: Musik-Loops, Partikel, Boss KERNEL_PANIC.EXE
-- [ ] **M4** Welt 2 USERSPACE: Overclock-Ability, Watchdogs
-- [ ] **M5** Welt 3–5, F-Droid
+- [ ] Sync with system calendars (Google, CalDAV) via `CalendarContract`
+- [ ] Reminders / notifications
+- [ ] Recurring and multi-day events
+- [ ] Home-screen widget in Nothing style
+- [ ] Week view
 
-## Lizenz
+## Contributing
 
-Code: **GPL-3.0** (siehe `LICENSE`). Sounds in `assets/sfx`: prozedural generiert, CC0.
+Issues and pull requests are welcome! Please keep the design minimal – black, white, one red accent.
+
+## Support
+
+If NothingCalendar is useful to you, consider buying me a coffee – it keeps the project going. ❤️
+
+<a href="https://www.buymeacoffee.com/3rr0r303yt"><img src="https://img.shields.io/badge/Buy%20Me%20a%20Coffee-☕-FFDD00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black" alt="Buy Me A Coffee"></a>
+
+## License
+
+[GNU GPL v3](LICENSE) © Real3rr0r303YT
+
+> NothingCalendar is an independent community project and is not affiliated with,
+> endorsed by, or sponsored by Nothing Technology Limited. "Nothing" is a trademark of its owner.
