@@ -29,10 +29,9 @@ class EventRepository(context: Context) {
 
     private fun load(): List<CalendarEvent> {
         val raw = prefs.getString(KEY_EVENTS, null) ?: return emptyList()
-        return runCatching {
-            val array = JSONArray(raw)
-            List(array.length()) { i -> array.getJSONObject(i).toEvent() }
-        }.getOrDefault(emptyList())
+        val array = runCatching { JSONArray(raw) }.getOrNull() ?: return emptyList()
+        // Skip only unreadable entries; one bad event must not wipe all others on the next persist().
+        return (0 until array.length()).mapNotNull { i -> runCatching { array.getJSONObject(i).toEvent() }.getOrNull() }
     }
 
     private fun persist() {
