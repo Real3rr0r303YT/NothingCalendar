@@ -28,4 +28,9 @@
     <string name="title_required">Titel fehlt</string>
     <string name="end_before_start">Ende muss nach dem Beginn liegen</string>
     <string name="pattern_agenda" translatable="false">EEE, d. MMM</string>
+    <!-- Widget -->
+    <string name="widget_calendar_name">Kalender</string>
+    <string name="widget_calendar_desc">Heute und deine nächsten Termine</string>
+    <string name="widget_all_day">GANZTAG</string>
+    <string name="widget_no_events">Keine anstehenden Termine</string>
 </resources>

@@ -1,6 +1,7 @@
 package com.real3rr0r303yt.nothingcalendar.data
 
 import android.content.Context
+import com.real3rr0r303yt.nothingcalendar.widget.CalendarWidget
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -12,6 +13,8 @@ import java.time.LocalTime
 
 /** Stores events locally on the device as JSON in SharedPreferences. */
 class EventRepository(context: Context) {
+
+    private val appContext = context.applicationContext
 
     private val prefs = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
     private val _events = MutableStateFlow(load())
@@ -38,6 +41,7 @@ class EventRepository(context: Context) {
         val array = JSONArray()
         _events.value.forEach { array.put(it.toJson()) }
         prefs.edit().putString(KEY_EVENTS, array.toString()).apply()
+        CalendarWidget.updateAll(appContext)
     }
 
     private fun CalendarEvent.toJson() = JSONObject().apply {

@@ -29,4 +29,9 @@
     <string name="title_required">Title is required</string>
     <string name="end_before_start">End must be after start</string>
     <string name="pattern_agenda" translatable="false">EEE, MMM d</string>
+    <!-- Widget -->
+    <string name="widget_calendar_name">Calendar</string>
+    <string name="widget_calendar_desc">Today and your next events</string>
+    <string name="widget_all_day">ALL DAY</string>
+    <string name="widget_no_events">No upcoming events</string>
 </resources>

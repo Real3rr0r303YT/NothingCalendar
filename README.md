@@ -41,6 +41,7 @@ calm, and tactile.
   rich composed vibration on devices that support haptic primitives (e.g. Nothing Phone's X-axis motor).
   Can be turned off in settings.
 - **Nothing OS look** – `#000000` black, `#FFFFFF` white, `#D71921` red accent, monospace labels, dot grid background
+- **Home screen widget** – today in dot-matrix plus your next three events; updates on every change and after midnight
 - **Settings** – toggle haptics, choose Monday or Sunday as first day of the week
 - **Localized** – English and German, honours the system 12/24-hour setting
 - **Private** – events are stored only on your device, no account, no internet permission
